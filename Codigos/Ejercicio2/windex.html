@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function cambiarUImagen(){
+            const imagen = document.getElementById("imagen").src;
+            //const achivo = imagen == "Imagen.jfif" ? "Imagen wide.png" :"Imagen.jfif";
+            //ya me malogro el profe la funcion csm
+            //ya ta arreglado ya
+        
+            if(imagen ==="file:///C:/Temp/ProgWeb/Codigos/Ejercicio2/Imagen.jfif"){
+                document.getElementById("imagen").src = "file:///C:/Temp/ProgWeb/Codigos/Ejercicio2/Imagen wide.png";
+            } else {
+                document.getElementById("imagen").src ="file:///C:/Temp/ProgWeb/Codigos/Ejercicio2/Imagen.jfif";
+            }
+        }
+    </script>
+</head>
+<body>
+    <h2>Titulo</h2>
+    <img src="Imagen.jfif" width="500px" id="imagen">
+    <button onclick='cambiarUImagen()'>
+        widen
+    </button>
+
+    <button onclick="document.getElementById('imagen').style.display='none'">
+        chau
+    </button>
+    
+</body>
+</html>
