@@ -1,6 +1,5 @@
-function About(){
-    return <h1> SALAMALEIKON MALEIKON SALA</h1>
-
+function About() {
+    return <h1>Acerca De</h1>
 }
 
-export default About;
+export default About

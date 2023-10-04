@@ -1,18 +1,21 @@
-const Formulrio =()=>{
+import styles from './formulario.module.css'
+
+const Formulario = () => {
     return (
         <>
-            <br />
-            <label>ID</label>
-            <input type="text" > </input>
-            <br />
-            <label>Nombre</label>
-            <input type="text" ></input>
-            <br/>
-            <label >Apellido</label>
+            <label className={styles.label}>ID</label>
             <input type="text"></input>
-            <br />
-            <label >Carrera</label>
+            <br/>
+            <label className={styles.label}>Nombre:</label>
+            <input type="text"></input>
+            <br/>
+            <label className={styles.label}>Apellido:</label>
+            <input type="text"></input>
+            <br/>
+            <label className={styles.label}>Carrera:</label>
             <input type="text"></input>
         </>
     )
 }
+
+export default Formulario

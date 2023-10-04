@@ -1,49 +1,63 @@
-import Formulario from './alumnos/Formulario/Fomulario.jsx'
+import { useState } from 'react'
 
-const Alumnos
- =() =>{
-    const alumn =[{
-        id: 1,
-        Nombre: "Jorge",
-        Apellido: "Nitales",
-        Carrera: "Chistemas"
-    },{
-        id: 2,
-        Nombre: "Rosa",
-        Apellido: "Melano",
-        Carrera: "Comunicaciones"
+import styles from './alumnos.module.css'
+import Formulario from './Formulario/Formulario.jsx'
+const Alumnos = () => {
+
+    const [showFormulario, setShowFormulario ] = useState(false);
+
+    const handleShowFormulario = () => {
+        setShowFormulario(!showFormulario);
     }
-    ]
-    
-    return(<> 
-        <h1> Lista de Alumnos</h1>
 
-        <table>
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Nombre</th>
-                    <th>Apellido</th>
-                    <th>Carrera</th>
-                </tr>
-            </thead>
-            <tbody>
-                {alumn.map(item=>{
+    const alumnos = [
+        {
+            id: 1,
+            nombre: "Juan",
+            apellido: "Perez",
+            carrera: "Sistemas"
+        },
+        {
+            id: 2,
+            nombre: "Gabriel",
+            apellido: "Sanchez",
+            carrera: "Derecho"
+        }
+    ]
+
+    return (
+        <>
+            <h1>Lista de Alumnos</h1>
+
+            <table className={styles.tabla}>
+                <thead>
                     <tr>
-                    <td>{item.id}</td>
-                    <td>{item.Nombre}</td>
-                    <td>{item.Apellido}</td>
-                    <td>{item.Carrera}</td>
-                </tr>
-                })}
-            </tbody>
-        </table>
-        <br />
-        <button>AGREGAR</button>
-        <Formulario></Formulario>
-    
-    </>
-       
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Carrera</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {alumnos.map(item => {
+                        return (<tr>
+                            <td>{item.id}</td>
+                            <td>{item.nombre}</td>
+                            <td>{item.apellido}</td>
+                            <td>{item.carrera}</td>
+                        </tr>)
+                    })
+                    }
+                </tbody>
+            </table>
+            <br />
+            <button onClick={handleShowFormulario}>AGREGAR</button>
+            <br/>
+            {
+                showFormulario && <Formulario />
+            }
+            
+        </>
     )
 }
 
