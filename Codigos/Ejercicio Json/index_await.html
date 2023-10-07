@@ -4,20 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.1/axios.min.js"></script>
     <script>
-        function llamada(){
+        
+       async function llamada(){
             const request = document.getElementById("request").value
-            fetch('https://pokeapi.co/api/v2/pokemon/'+request)
-            .then(Response=>Response.json())
-            .then(data=>{
-                const id = data.id;
-                const name = data.name;
-                const img = data.sprites.front_default;
+            const resp = await axios.get('https://pokeapi.co/api/v2/pokemon/'+request)
+            
+            const id = resp.data.id;
+            const name = resp.data.name;
+            const img = resp.data.sprites.front_default;
 
-                document.getElementById("nombre").innerHTML = name;
-                document.getElementById("numero").innerHTML = id;
-                document.getElementById("imagen").src=img;
-            })
+            document.getElementById("nombre").innerHTML = name;
+            document.getElementById("numero").innerHTML = id;
+            document.getElementById("imagen").src=img;
         
         console.log('hola')
         }
